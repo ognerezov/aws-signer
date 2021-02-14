@@ -13,9 +13,11 @@
     <version>0.0.1</version>
     <name>aws-signer</name>
     <description>Sign server for cloud front </description>
+
     <properties>
         <java.version>11</java.version>
         <aws-sdk.version>1.11.937</aws-sdk.version>
+        <ehcache.version>3.9.0</ehcache.version>
     </properties>
     <dependencies>
         <dependency>
@@ -27,6 +29,12 @@
             <groupId>com.amazonaws</groupId>
             <artifactId>aws-java-sdk-cloudfront</artifactId>
             <version>${aws-sdk.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.ehcache</groupId>
+            <artifactId>ehcache</artifactId>
+            <version>${ehcache.version}</version>
         </dependency>
 
         <dependency>

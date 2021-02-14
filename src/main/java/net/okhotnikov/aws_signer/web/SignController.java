@@ -1,10 +1,9 @@
 package net.okhotnikov.aws_signer.web;
 
+import net.okhotnikov.aws_signer.api.ListHolder;
+import net.okhotnikov.aws_signer.config.CloudFrontConfig;
 import net.okhotnikov.aws_signer.service.CloudFrontService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("sign")
@@ -18,6 +17,16 @@ public class SignController {
 
     @GetMapping("link/{id:.+}")
     public String sign(@PathVariable String id){
-        return cloudFrontService.getSignedUrl("russian/"+id);
+        return cloudFrontService.getSignedUrl(id);
+    }
+
+    @PostMapping("links")
+    public ListHolder<String> getLinks(@RequestBody ListHolder<String> request){
+        return new ListHolder<>(cloudFrontService.getSigned(request.list));
+    }
+
+    @GetMapping("distribution")
+    public String getDistribution(){
+        return CloudFrontConfig.DEFAULT_DISTRIBUTION;
     }
 }
