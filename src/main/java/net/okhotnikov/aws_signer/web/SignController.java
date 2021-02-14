@@ -1,7 +1,6 @@
 package net.okhotnikov.aws_signer.web;
 
 import net.okhotnikov.aws_signer.api.ListHolder;
-import net.okhotnikov.aws_signer.config.CloudFrontConfig;
 import net.okhotnikov.aws_signer.service.CloudFrontService;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,10 +22,5 @@ public class SignController {
     @PostMapping("links")
     public ListHolder<String> getLinks(@RequestBody ListHolder<String> request){
         return new ListHolder<>(cloudFrontService.getSigned(request.list));
-    }
-
-    @GetMapping("distribution")
-    public String getDistribution(){
-        return CloudFrontConfig.DEFAULT_DISTRIBUTION;
     }
 }
