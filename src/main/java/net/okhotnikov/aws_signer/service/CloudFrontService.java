@@ -3,11 +3,9 @@ package net.okhotnikov.aws_signer.service;
 import com.amazonaws.services.cloudfront.AmazonCloudFront;
 import com.amazonaws.services.cloudfront.CloudFrontUrlSigner;
 import com.amazonaws.services.cloudfront.util.SignerUtils;
-import net.okhotnikov.aws_signer.api.ListHolder;
 import net.okhotnikov.aws_signer.api.exceptions.BadRequestException;
 import org.ehcache.Cache;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.HttpClientErrorException;
 
 import static net.okhotnikov.aws_signer.config.CloudFrontConfig.*;
 import java.security.PrivateKey;
@@ -41,7 +39,7 @@ public class CloudFrontService {
 
         res = CloudFrontUrlSigner.getSignedURLWithCannedPolicy(
                 resourcePath,
-                PUBLIC_KEY,
+                PUBLIC_KEY_ID,
                 privateKey,
                 getExpirationDate());
 

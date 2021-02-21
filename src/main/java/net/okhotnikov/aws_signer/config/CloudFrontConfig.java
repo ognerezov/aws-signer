@@ -14,7 +14,7 @@ import java.security.PrivateKey;
 
 @Configuration
 public class CloudFrontConfig {
-    public static final String PUBLIC_KEY = System.getenv("PUBLIC_KEY");
+    public static final String PUBLIC_KEY_ID = System.getenv("PUBLIC_KEY_ID");
     public static final String DEFAULT_DISTRIBUTION = System.getenv("DISTRIBUTION");
     public static final int CLOUD_FRONT_LINK_TTL = Integer.parseInt(System.getenv("LINK_TTL"));
     private static PrivateKey privateKey;

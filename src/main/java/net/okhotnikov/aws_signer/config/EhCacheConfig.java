@@ -25,6 +25,7 @@ import static net.okhotnikov.aws_signer.config.CloudFrontConfig.CLOUD_FRONT_LINK
 public class EhCacheConfig {
 
     public static final String LINKS_CACHE = "links";
+    public static final int TTL_SAFE_PERIOD = Integer.parseInt(System.getenv("TTL_SAFE_PERIOD"));
 
     @Bean
     public CacheManager ehCacheManager() {
@@ -38,7 +39,7 @@ public class EhCacheConfig {
                                 )
                                         .withExpiry(ExpiryPolicyBuilder
                                                 .timeToLiveExpiration(
-                                                        Duration.ofSeconds(CLOUD_FRONT_LINK_TTL - 10))
+                                                        Duration.ofSeconds(CLOUD_FRONT_LINK_TTL - TTL_SAFE_PERIOD))
                                         )
                 )
                 .build();
