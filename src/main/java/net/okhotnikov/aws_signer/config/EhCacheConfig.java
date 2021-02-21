@@ -39,7 +39,7 @@ public class EhCacheConfig {
                                 )
                                         .withExpiry(ExpiryPolicyBuilder
                                                 .timeToLiveExpiration(
-                                                        Duration.ofSeconds(CLOUD_FRONT_LINK_TTL - TTL_SAFE_PERIOD))
+                                                        Duration.ofMillis(CLOUD_FRONT_LINK_TTL - TTL_SAFE_PERIOD))
                                         )
                 )
                 .build();

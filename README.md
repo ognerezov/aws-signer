@@ -28,5 +28,5 @@ This project is a simple serve tool for creating CloudFront sign links
 
 ## Cache configuration
 
-* LINK_TTL - the link will live this time (seconds)
-* TTL_SAFE_PERIOD - link will be hold in cache for time = LINK_TTL - TTL_SAFE_PERIOD (seconds)
+* LINK_TTL - the link will live this time (milliseconds)
+* TTL_SAFE_PERIOD - link will be hold in cache for time = LINK_TTL - TTL_SAFE_PERIOD (milliseconds)
