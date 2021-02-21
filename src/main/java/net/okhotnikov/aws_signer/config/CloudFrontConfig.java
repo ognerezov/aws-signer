@@ -38,7 +38,6 @@ public class CloudFrontConfig {
     public AmazonCloudFront getCloudFrontClient(){
         String region = System.getenv("AWS_DEFAULT_REGION");
         return AmazonCloudFrontClientBuilder.standard()
-                .withCredentials(new EnvironmentVariableCredentialsProvider())
                 .withRegion(region)
                 .build();
     }
